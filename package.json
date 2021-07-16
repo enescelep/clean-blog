@@ -1,0 +1,29 @@
+{
+  "name": "clean-blog",
+  "version": "1.0.0",
+  "description": "Clean Blog Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enescelep/clean-blog.git"
+  },
+  "keywords": [
+    "cleanblog",
+    "blog",
+    "clean-blog"
+  ],
+  "author": "Enes CELEP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enescelep/clean-blog/issues"
+  },
+  "homepage": "https://github.com/enescelep/clean-blog#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "prettier": "2.3.2"
+  }
+}

@@ -25,7 +25,7 @@
 - Veri tabanımızda 3 adet post dökümanı oluşturalım.
 - Oluşturduğumuz post dökümanlarını Blog sitemizin anasayfasında gösterelim.
 
-#Clean Blog Projesi 4. Ödev
+# Clean Blog Projesi 4. Ödev
 - index.ejs içerisinde /posts/<%= posts[i]._id %> ile _id bilgisini gönderelim.
 - app.js içerisinde GET metoduyla "/posts/:id" ile gönderilen "_id" yi yakalayalım. .
 - tekil post bilgilerini post.ejs dosyasına gönderelim.

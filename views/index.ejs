@@ -24,7 +24,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <% for(let i = 0; i < posts.length; i++) {%>
         <div class="post-preview">
-          <a href="/post">
+          <a href="/posts/<%= posts[i]._id %>">
             <h2 class="post-title">
               <%= posts[i].title %>
             </h2>
@@ -33,8 +33,8 @@
             </h3>
           </a>
           <p class="post-meta">Posted by
-            <a href="/post">Enes05</a>
-            on 2021</p>
+            <a href="/">Enes05</a>
+            on <%=posts[i].dateCreated.getUTCDay() %>.<%= posts[i].dateCreated.getUTCMonth() %>.<%= posts[i].dateCreated.getUTCFullYear() %></p>
         </div>
         <hr>
         <% } %>

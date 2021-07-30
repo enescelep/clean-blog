@@ -18,7 +18,6 @@
   <!-- Main Content -->
 
   <div class="container">
-
     <div class="row">
 
       <div class="col-lg-8 col-md-10 mx-auto">
@@ -29,20 +28,55 @@
               <%= posts[i].title %>
             </h2>
             <h3 class="post-subtitle">
-              <%= posts[i].detail %>
+              <%= posts[i].detail.slice(0, 172) + (posts[i].detail.length > 172 ? "..." : "") %>
             </h3>
           </a>
           <p class="post-meta">Posted by
             <a href="/">Enes05</a>
-            on <%=posts[i].dateCreated.getUTCDay() %>.<%= posts[i].dateCreated.getUTCMonth() %>.<%= posts[i].dateCreated.getUTCFullYear() %></p>
+            on <%=posts[i].dateCreated.getDate() %> <%= posts[i].dateCreated.toLocaleString('en-us', { month: 'long' }) %>, <%= posts[i].dateCreated.getFullYear() %></p>
         </div>
         <hr>
         <% } %>
 
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+            <!-- Navigation -->
+          <% if (pages > 0) {%>
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+
+                <li class="page-item">
+                  <% if ((parseInt(current) - parseInt(1)) === 0) { %>
+                  <a class="page-link" href="#" >
+                    <span aria-hidden="true">⬅️</span>
+                  </a>
+                  <% } else { %>
+                      <a class="page-link" href="?page=<%= parseInt(current) - parseInt(1) %>" aria-disabled="true">
+                        <span aria-hidden="true">⬅️</span>
+                      </a>
+                  <% }%>
+                </li>
+                <% if (!((parseInt(current) - parseInt(1)) === 0)) {%>
+                    <li class="page-item" href="?page=<%= parseInt(current) - parseInt(1) %>" tabindex="-1" aria-disabled="true"><a class="page-link" href="?page=<%= parseInt(current) - parseInt(1) %>"><%= parseInt(current) - parseInt(1) %></a></li>
+                <% }%>
+                <li class="page-item active" href="?page=<%= parseInt(current) %>" tabindex="-1" aria-disabled="true"><a class="page-link" href="?page=<%= parseInt(current) %>"><%= parseInt(current) %></a></li>
+                <% if (parseInt(current) !== parseInt(pages)) { %>
+                    <li class="page-item" href="?page=<%= parseInt(current) + parseInt(1) %>" tabindex="-1" aria-disabled="true"><a class="page-link" href="?page=<%= parseInt(current) + parseInt(1) %>"><%= parseInt(current) + parseInt(1) %></a></li>
+                <% } %>
+                <% if (parseInt(current) == parseInt(pages)) { %>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-disabled="false">
+                    <span aria-hidden="true">➡️</span>
+                  </a>
+                </li>
+                <% } else { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= parseInt(current) + parseInt(1) %>" aria-disabled="true">
+                            <span aria-disabled="true" aria-hidden="true">➡️</span>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+          </nav>
+        <% } %>
       </div>
     </div>
   </div>

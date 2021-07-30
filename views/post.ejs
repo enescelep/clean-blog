@@ -2,7 +2,7 @@
 <body>
 <%- include('partials/_navigation') -%>
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+  <header class="masthead" style="background-image: url('<%= post.image %>')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -11,7 +11,7 @@
             <h1><%= post.title %></h1>
             <span class="meta">Posted by
               <a href="#">Enes05</a>
-              on <%=post.dateCreated.getUTCDay() %>.<%= post.dateCreated.getUTCMonth() %>.<%= post.dateCreated.getUTCFullYear() %></span>
+              on <%=post.dateCreated.getDay() %> <%= post.dateCreated.toLocaleString('en-us', { month: 'long' }) %>, <%= post.dateCreated.getFullYear() %></span>
           </div>
         </div>
       </div>
@@ -23,8 +23,23 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <img class='img-fluid' src='<%= post.image %>'>
+          <span class='caption text-muted'>
+            <%= post.caption %>
+          </span>
           <%= post.detail %>
+
         </div>
+        <div class="col-md-2 btn-group-vertical">
+        <div class="text-center">
+          <a type="button" class="btn btn-outline-primary btn-lg" href="/posts/update/<%= post._id %>">Update Post</a>
+        </div>
+          <br />
+        <div class="text-center">
+          <a type="button" class="btn btn-outline-danger btn-lg" href="/posts/<%= post._id %>?_method=DELETE" onclick="return confirm('Are you sure wanna delete this post?')">Delete Post</a>
+        </div>
+
+      </div>
       </div>
     </div>
   </article>

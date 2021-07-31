@@ -31,9 +31,6 @@
               <%= posts[i].detail.slice(0, 172) + (posts[i].detail.length > 172 ? "..." : "") %>
             </h3>
           </a>
-          <p class="post-meta">Posted by
-            <a href="/">Enes05</a>
-            on <%=posts[i].dateCreated.getDate() %> <%= posts[i].dateCreated.toLocaleString('en-us', { month: 'long' }) %>, <%= posts[i].dateCreated.getFullYear() %></p>
         </div>
         <hr>
         <% } %>
